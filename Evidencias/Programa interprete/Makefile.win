@@ -1,0 +1,44 @@
+# Project: Polinomios
+# Makefile created by Dev-C++ 5.2.0.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o Rac.o texto.o String_Tokenizer.o Pol_Directory.o Directory_entry.o $(RES)
+LINKOBJ  = main.o Rac.o texto.o String_Tokenizer.o Pol_Directory.o Directory_entry.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc  
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" 
+BIN      = Polinomios.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Polinomios.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Polinomios.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Rac.o: Rac.cpp
+	$(CPP) -c Rac.cpp -o Rac.o $(CXXFLAGS)
+
+texto.o: texto.cpp
+	$(CPP) -c texto.cpp -o texto.o $(CXXFLAGS)
+
+String_Tokenizer.o: String_Tokenizer.cpp
+	$(CPP) -c String_Tokenizer.cpp -o String_Tokenizer.o $(CXXFLAGS)
+
+Pol_Directory.o: Pol_Directory.cpp
+	$(CPP) -c Pol_Directory.cpp -o Pol_Directory.o $(CXXFLAGS)
+
+Directory_entry.o: Directory_entry.cpp
+	$(CPP) -c Directory_entry.cpp -o Directory_entry.o $(CXXFLAGS)
